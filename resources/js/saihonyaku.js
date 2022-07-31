@@ -33,7 +33,7 @@ function checkResult(result) {
 
 function getLatest(latestnum = parseInt($("#content").data('latestnum'))) {
     $.ajax({
-        url: "./api/getLatest",
+        url: "http://saihonyaku.ga/api/getLatest",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -77,7 +77,7 @@ function getOlder() {
     $(".spinner-border").addClass('d-flex');
 
     $.ajax({
-        url: "./api/getOlder",
+        url: "http://saihonyaku.ga/api/getOlder",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
