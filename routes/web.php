@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $arrayNext = json_decode(Storage::get('translation/logs/log_Next.json'), true);
+    $arrayTranslation = json_decode(Storage::get('translation/json/' . $arrayNext['date'] . '/' . $arrayNext['date'] . '-000.json'), true);
+    $originText = nl2br(e($arrayTranslation[0]['text_ja']));
+    return view('saihonyaku', compact('originText'));
 });

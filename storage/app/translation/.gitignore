@@ -1,0 +1,6 @@
+*
+!json/
+!logs/
+!origins/
+!origin.txt
+!.gitignore

@@ -5,4 +5,25 @@
 @import 'variables';
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
+
+@include media-breakpoint-up(sm) {
+    .sentence {
+        max-width: 48%;
+        min-height: 100px !important;
+        height: 25vh;
+    }
+}
+
+.sentence {
+    min-height: 180px !important;
+    height: 30vh;
+}
+
+@include media-breakpoint-up(lg) {
+    .pc-container {
+        width: 50%;
+        min-width: 900px;
+        margin: 0 auto;
+    }
+}
