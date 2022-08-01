@@ -43,7 +43,6 @@ function getLatest(latestnum = parseInt($("#content").data('latestnum'))) {
         },
         dataType: 'json',
     }).done(function (result) {
-        console.log(result);
         try {
             checkResult(result);
             for (let i = 1; i <= result['content'][0]; i++) {
@@ -87,7 +86,6 @@ function getOlder() {
         },
         dataType: 'json',
     }).done(function (result) {
-        console.log(result);
         try {
             checkResult(result);
             for (let i = 1; i <= result['content'][0]; i++) {
