@@ -37,6 +37,11 @@ class ExecuteTranslation extends Command
         }
 
         $arrayNext = json_decode(Storage::get('translation/logs/log_Next.json'), true);
+
+        if (!Storage::exists('translation/json/' . $arrayNext['date'] . '/' . $arrayNext['date'] . '-000.json')) {
+            ConvertTxtToJson::nextNotExists();
+        }
+
         $arrayTranslation = json_decode(Storage::get('translation/json/' . $arrayNext['date'] . '/' . $arrayNext['date'] . '-' . sprintf("%03d", floor(($arrayNext['id'] - 1) / \App\Consts\Consts::SENTENCES_PER_LOG)) . '.json'), true);
 
         $currentIndex = ($arrayNext['id'] - 1) % \App\Consts\Consts::SENTENCES_PER_LOG;
